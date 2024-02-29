@@ -87,8 +87,8 @@ public class ControlCenter {
 		nextComment(track.getDescription());
 		nextComment("Tenemos hoy " + vehicles.length + " competidores: ");
 		for (Vehicle vehicle : vehicles) {
-			nextComment("Con el número " + vehicle.getNumber() + " tenemos un " + vehicle.getDescription()
-					+ " pilotado por " + vehicle.getDriver() + ". Este vehículo alcanza una velocidad máxima de "
+			nextComment("Con el número " + vehicle.getNumber() + " tenemos una " + vehicle.getDescription()
+					+ " pilotada por " + vehicle.getDriver() + ". Este vehículo alcanza una velocidad máxima de "
 					+ vehicle.getMaxSpeed() + " km/h");
 		}
 		nextComment("Comienza la carrera!");
@@ -122,9 +122,12 @@ public class ControlCenter {
 		nextComment("Y acaba la carrera! Los tiempos de los pilotos son: ");
 		for (int i=0; i<vehicles.length;i++) {
 			Vehicle vehicle = vehicles[i];
-			nextComment("\t" + vehicle.getDriver() + " con el número " + vehicle.getNumber() + " ha hecho un tiempo de " + timeTo2Decimals(times[i]) + " segundos.");
-		}
-		
+				for (j=1; j<times.length;j++){
+
+					nextComment("\t" + vehicle.getDriver() + " con el número " + vehicle.getNumber() + " ha hecho un tiempo de " + timeTo2Decimals(times[i]) + " segundos.");
+
+				}
+			}
 	}
 
 	private static String timeTo2Decimals(double time) {
@@ -142,16 +145,18 @@ public class ControlCenter {
 		sections1[3] = new StandardIndoorSection(2000, "zig-zag", 85);
 		sections1[4] = new StandardIndoorSection(1000, "recta final", 105);
         // creamos una nueva carrera y le pasamos las secciones
-		Track track1 = new Track(sections1);
+		Track track = new Track(sections1);
 		// creamos un nuevo array con el numero de vehículos
 		Vehicle[] vehicles1 = new Vehicle[3];
+		// Añadimos el número de vehículo, el piloto, la velocidad actual (0), la velocidad
+		// maxima y la descripcion de la moto
 		vehicles1[0] = new Scooter(1,"Rico",0,85,"moto amarilla de Rossi");
 		vehicles1[1] = new Scooter(2,"Jose Antonio",0,75,"Moto binaria");
-		vehicles1[2] = new Scooter(3,"Yisus", 0,90,"Moto resucitada");
+		vehicles1[2] = new Scooter(3,"Isma", 0,90,"Moto matematica");
 
 
 
-		start(track1, vehicles1);
+		start(track, vehicles1);
 
 	}
 
