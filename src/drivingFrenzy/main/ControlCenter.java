@@ -145,6 +145,11 @@ public class ControlCenter {
 		Track track1 = new Track(sections1);
 		// creamos un nuevo array con el numero de vehículos
 		Vehicle[] vehicles1 = new Vehicle[3];
+		vehicles1[0] = new Scooter(1,"Rico",0,85,"moto amarilla de Rossi");
+		vehicles1[1] = new Scooter(2,"Jose Antonio",0,75,"Moto binaria");
+		vehicles1[2] = new Scooter(3,"Yisus", 0,90,"Moto resucitada");
+
+
 
 		start(track1, vehicles1);
 
@@ -152,7 +157,8 @@ public class ControlCenter {
 
 	public static void main(String[] args) throws IOException {
 		System.out.println(USAGE);
-		simpleRandomRace(50, 100, 2, 5, 40, 150, 500, 2000, 70, 150);
+		// simpleRandomRace(50, 100, 2, 5, 40, 150, 500, 2000, 70, 150);
+		defaultRace();
 	}
 
 	/*

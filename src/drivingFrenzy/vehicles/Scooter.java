@@ -49,14 +49,14 @@ public class Scooter implements Vehicle {
 		String result = "";
 		if (nextSection.getTheoreticalMaxSpeed() > currentSpeed) {
 			int nextSpeed =  Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
-			result += "El número " + number + " acelera desde " + currentSpeed + " a " + nextSpeed + ". ";
+			result += "El numero " + number + " acelera desde " + currentSpeed + " a " + nextSpeed + ". ";
 			currentSpeed = nextSpeed;
 			if (maxSpeed == currentSpeed) {
-				result += driver + " aprieta a fondo, pero su " + description + " está al límite!";
+				result += driver + " aprieta a fondo, pero su " + description + " esta al limite!";
 			}
 		} else {
 			currentSpeed = nextSection.getTheoreticalMaxSpeed();
-			result += "El número " + number + " reduce la velocidad a " + currentSpeed;
+			result += "El numero " + number + " reduce la velocidad a " + currentSpeed;
 		}
 		return result;
 	}
