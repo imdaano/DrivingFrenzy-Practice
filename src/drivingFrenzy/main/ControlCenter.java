@@ -130,7 +130,26 @@ public class ControlCenter {
 	private static String timeTo2Decimals(double time) {
 		return 0.01 * Math.round(time*100)+"";
 	}
-	
+
+
+	private static void defaultRace() throws IOException {
+		// creamos un array con número de secciones
+		Section[] sections1 = new Section[5];
+		// Añadimos la longitud, descripcion y velocidad max a cada sección
+		sections1[0] = new StandardIndoorSection(1000,"Curva peligrosa", 80);
+		sections1[1] = new StandardIndoorSection(2000,"Recta a fondo", 130);
+		sections1[2] = new StandardIndoorSection(3000, "curva prolongada con recta", 110);
+		sections1[3] = new StandardIndoorSection(2000, "zig-zag", 85);
+		sections1[4] = new StandardIndoorSection(1000, "recta final", 105);
+        // creamos una nueva carrera y le pasamos las secciones
+		Track track1 = new Track(sections1);
+		// creamos un nuevo array con el numero de vehículos
+		Vehicle[] vehicles1 = new Vehicle[3];
+
+		start(track1, vehicles1);
+
+	}
+
 	public static void main(String[] args) throws IOException {
 		System.out.println(USAGE);
 		simpleRandomRace(50, 100, 2, 5, 40, 150, 500, 2000, 70, 150);
