@@ -7,19 +7,20 @@ public class Track {
 		String result = "Este circuito se compone de " + sections.length + " secciones. ";
 		// We could have the length and speeds pre-computed when creating the track.
 		int length = 0;
-		int fastestSectionSpeed = 0;
-		int slowestSectionSpeed = Integer.MAX_VALUE;
+		int fastestSectionSpeed = 0; // velocidad maxima de sección
+		int slowestSectionSpeed = Integer.MAX_VALUE; //
 		for (Section section : sections) {
-			length += section.getLength();
+			length = length + section.getLength(); // va sumando el total de metros a las secciones
 			if (fastestSectionSpeed < section.getTheoreticalMaxSpeed()) {
-				fastestSectionSpeed = section.getTheoreticalMaxSpeed();
+				fastestSectionSpeed = section.getTheoreticalMaxSpeed(); // este if calcula sirve para calcular cual es la velocidad maxima de cada sección para obtener
+				// la velocidad de la seccion mas rápida
 			}
 			if (slowestSectionSpeed > section.getTheoreticalMaxSpeed()) {
-				slowestSectionSpeed = section.getTheoreticalMaxSpeed();
+				slowestSectionSpeed = section.getTheoreticalMaxSpeed(); // sirve para calcular la seccion mas lenta
 			}
 		}
 		// Imprimir info sobre el tramo más rápido y el más lento.
-		// Imprimir la info en kilómetros . 
+		// Imprimir la info en kilómetros.
 		result += "La longitud total es de "+  length + " metros. En el tramo más rápido se alcanza la friolera de " + fastestSectionSpeed
 				+ " km/h, mientras que en el tramo más lento los pilotos han de reducir a " + slowestSectionSpeed
 				+ " km/h";
